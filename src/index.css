@@ -2,8 +2,8 @@
 
 @theme {
   /* Colors */
-  --color-navy-950: #050a14;
-  --color-navy-900: #0a0e1a;
+  --color-navy-950: #0a1120;
+  --color-navy-900: #0f172a;
   --color-navy-800: #0d1b2a;
   --color-navy-700: #1b2838;
   --color-navy-600: #243447;
@@ -21,8 +21,8 @@
   --color-gray-100: #f1f5f9;
   --color-gray-200: #e2e8f0;
   --color-gray-300: #cbd5e1;
-  --color-gray-400: #94a3b8;
-  --color-gray-500: #64748b;
+  --color-gray-400: #aab5c6;
+  --color-gray-500: #7a8aa3;
   --color-gray-600: #475569;
 
   /* Fonts */
@@ -82,16 +82,19 @@
   }
 
   body {
-    font-family: var(--font-body);
-    background-color: var(--color-navy-950);
-    color: var(--color-white);
+    font-family: var(--font-body), "Inter", sans-serif;
+    background-color: #0a1120;
+    color: #ffffff;
+    font-size: 1.0625rem; /* 17px for better readability */
+    line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading), "Space Grotesk", sans-serif;
+    color: #ffffff;
   }
 
   /* Scrollbar */
@@ -150,14 +153,6 @@
     transform: translateY(-4px);
   }
 
-  /* Gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, var(--color-cyan-500), var(--color-blue-500));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   /* Section divider */
   .section-divider {
     height: 1px;
@@ -199,4 +194,12 @@
   .glow-btn:hover::before {
     opacity: 1;
   }
+}
+
+/* ──────────────────────────────────────────────
+   Gradient text — reliable solid color approach
+   ────────────────────────────────────────────── */
+.gradient-text {
+  color: #00e5ff !important;
+  -webkit-text-fill-color: #00e5ff !important;
 }

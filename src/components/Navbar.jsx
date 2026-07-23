@@ -4,24 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'About Us', path: '/about' },
   {
     name: 'Services',
     path: '/services',
     children: [
-      { name: 'Network Management', path: '/services/network-management' },
+      { name: 'Network Management System', path: '/services/network-management' },
       { name: 'Managed Services', path: '/services/managed-services' },
+      { name: 'SecureWAN Solutions', path: '/services/secure-wan' },
+      { name: 'Satellite Communication', path: '/services/satellite-communication' },
+      { name: 'IT Managed Services', path: '/services/it-managed-services' },
+      { name: 'Helpdesk Support', path: '/services/helpdesk-support' },
     ],
   },
-  {
-    name: 'Products',
-    path: '/products',
-    children: [
-      { name: 'ASB21 Series', path: '/products/asb21' },
-      { name: 'ASB50 Series', path: '/products/asb50' },
-      { name: 'ASB90 Series', path: '/products/asb90' },
-    ],
-  },
+  { name: 'About Us', path: '/about' },
+  { name: 'Contact Us', path: '/contact' },
   { name: 'Careers', path: '/careers' },
 ]
 
@@ -47,7 +43,7 @@ export default function Navbar() {
       id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-navy-950/90 backdrop-blur-xl border-b border-cyan-500/10 shadow-lg shadow-cyan-500/5'
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-md'
           : 'bg-transparent'
       }`}
     >
@@ -56,9 +52,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img 
-              src="/images/logo.png" 
+              src={scrolled ? "/images/logo1.png" : "/images/logo.png"} 
               alt="SkyionX Logo" 
-              className="h-10 w-auto object-contain" 
+              className="h-16 w-auto object-contain" 
             />
           </Link>
 
@@ -75,8 +71,8 @@ export default function Navbar() {
                   <button
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1 cursor-default ${
                       location.pathname.startsWith(link.path)
-                        ? 'text-cyan-400'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        ? (scrolled ? 'text-cyan-600' : 'text-cyan-400')
+                        : (scrolled ? 'text-gray-700 hover:text-cyan-600 hover:bg-gray-100' : 'text-gray-300 hover:text-white hover:bg-white/5')
                     }`}
                   >
                     {link.name}
@@ -96,8 +92,8 @@ export default function Navbar() {
                     to={link.path}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
                       location.pathname === link.path
-                        ? 'text-cyan-400'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        ? (scrolled ? 'text-cyan-600' : 'text-cyan-400')
+                        : (scrolled ? 'text-gray-700 hover:text-cyan-600 hover:bg-gray-100' : 'text-gray-300 hover:text-white hover:bg-white/5')
                     }`}
                   >
                     {link.name}
@@ -130,15 +126,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <Link
-              to="/contact"
-              className="hidden lg:inline-flex px-5 py-2 rounded-lg border border-cyan-500/30 text-cyan-400 text-sm font-medium hover:bg-cyan-500/10 hover:border-cyan-500/60 transition-all duration-300"
-            >
-              Contact Us
-            </Link>
-
             {/* Mobile Hamburger */}
             <button
               id="mobile-menu-toggle"
@@ -147,9 +135,9 @@ export default function Navbar() {
               aria-label="Toggle menu"
             >
               <div className="space-y-1.5">
-                <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-gray-800' : 'bg-white'} ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-gray-800' : 'bg-white'} ${mobileOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-gray-800' : 'bg-white'} ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
               </div>
             </button>
           </div>
@@ -196,12 +184,6 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              <Link 
-                to="/contact" 
-                className="block mt-4 text-center px-5 py-2.5 rounded-lg border border-cyan-500/30 text-cyan-400 text-sm font-medium hover:bg-cyan-500/10 hover:border-cyan-500/60 transition-all duration-300"
-              >
-                Contact Us
-              </Link>
             </div>
           </motion.div>
         )}

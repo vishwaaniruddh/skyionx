@@ -16,10 +16,10 @@ export default function HomePage() {
       <WhySkyionx />
       <Industries />
       <UptimeBanner />
-      <Products />
+      {/* <Products /> */}
       <Solutions />
       <NetworkMonitoring />
-      <Clients />
+      {/* <Clients /> */}
     </main>
   )
 }

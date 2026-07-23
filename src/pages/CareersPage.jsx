@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { jobsData } from '../data/jobs'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -10,14 +11,6 @@ const fadeUp = {
     transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 }
-
-const jobDetails = [
-  { label: 'Location', value: 'Vashi, Navi Mumbai' },
-  { label: 'Duration', value: '6 Months' },
-  { label: 'Stipend', value: '₹6,000 – ₹10,000 / month' },
-  { label: 'Working Hours', value: 'Mon–Sat | 10:00 AM – 7:00 PM' },
-  { label: 'Openings', value: '10' },
-]
 
 export default function CareersPage() {
   const heroRef = useRef(null)
@@ -47,147 +40,130 @@ export default function CareersPage() {
       </section>
 
       <div className="site-container -mt-10 lg:-mt-20 relative z-20">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="space-y-12">
           
-          {/* Main Content Area */}
-          <div className="lg:col-span-8 space-y-12">
-            
-            {/* 01 - Introduction */}
-            <motion.section 
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true, margin: '-50px' }} 
-              variants={fadeUp} 
-              className="glass-card p-8 lg:p-12"
-            >
-              <span className="text-cyan-400 text-sm font-medium tracking-widest uppercase block mb-4">01 — Careers at SkyionX</span>
-              <h2 className="text-2xl lg:text-3xl font-bold font-heading mb-6">Build the Future of <span className="gradient-text">Communication</span></h2>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Join SkyionX Space Innovations Pvt. Ltd. and be a part of innovative projects in communication technology, networking, and enterprise solutions. We provide opportunities for students and freshers to gain practical industry experience and develop professional skills in a dynamic work environment.
-              </p>
-            </motion.section>
+          {/* 01 - Introduction */}
+          <motion.section 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true, margin: '-50px' }} 
+            variants={fadeUp} 
+            className="glass-card p-8 lg:p-12"
+          >
+            <span className="text-cyan-400 text-sm font-medium tracking-widest uppercase block mb-4">01 — Careers at SkyionX</span>
+            <h2 className="text-2xl lg:text-3xl font-bold font-heading mb-6">Build the Future of <span className="gradient-text">Communication</span></h2>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              Join SkyionX Space Innovations Pvt. Ltd. and be a part of innovative projects in communication technology, networking, and enterprise solutions. We provide opportunities for ambitious professionals and fresh talent to gain practical industry experience and develop impactful careers.
+            </p>
+          </motion.section>
 
-            {/* 02 - Current Opening */}
-            <motion.section 
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true, margin: '-50px' }} 
-              variants={fadeUp} 
-              className="glass-card p-8 lg:p-12 border-cyan-500/30"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                <div>
-                  <span className="text-cyan-400 text-sm font-medium tracking-widest uppercase block mb-2">02 — Current Opening</span>
-                  <h2 className="text-2xl lg:text-3xl font-bold font-heading text-white">Project Coordinator Intern</h2>
-                </div>
-                <span className="px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20">
-                  Internship
-                </span>
+          {/* 02 - Current Openings (Cards) */}
+          <motion.section 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true, margin: '-50px' }} 
+            variants={fadeUp}
+            className="space-y-6"
+          >
+            <div className="flex items-center justify-between flex-wrap gap-4 mb-2">
+              <div>
+                <span className="text-cyan-400 text-sm font-medium tracking-widest uppercase block mb-2">02 — Open Positions</span>
+                <h2 className="text-2xl lg:text-3xl font-bold font-heading text-white">Current Openings</h2>
               </div>
-              
-              <p className="text-gray-400 leading-relaxed mb-8 pb-8 border-b border-white/5">
-                SkyionX is currently hiring Project Coordinator Interns to support project planning, coordination, documentation, and technical operations. This internship provides hands-on exposure to real-world projects and communication technologies.
-              </p>
+              <span className="text-gray-400 text-sm">{jobsData.length} Active Positions</span>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-10">
-                {/* Eligibility & Requirements */}
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-bold font-heading text-white mb-4 flex items-center gap-2">
-                      <svg className="w-5 h-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Eligibility
-                    </h3>
-                    <ul className="space-y-2 text-gray-400">
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> Freshers & Final-Year Students</li>
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> Graduates & Diploma Holders</li>
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> B.E. / B.Tech Candidates</li>
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> Eligible Branches: IT, Computer Engineering, Computer Science, Electronics & Telecommunication, and related technical streams.</li>
-                    </ul>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {jobsData.map((job) => (
+                <Link
+                  key={job.id}
+                  to={`/careers/${job.id}`}
+                  className="block group"
+                >
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    className="glass-card p-8 flex flex-col justify-between h-full group-hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/15 transition-all"></div>
+                    
+                    <div>
+                      <div className="flex items-center justify-between gap-4 mb-4">
+                        <span className="px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold uppercase tracking-wider border border-cyan-500/20">
+                          {job.badge}
+                        </span>
+                        <span className="text-xs text-cyan-400/80 font-medium">
+                          {job.openings} Openings
+                        </span>
+                      </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold font-heading text-white mb-4 flex items-center gap-2">
-                      <svg className="w-5 h-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                      </svg>
-                      Requirements
-                    </h3>
-                    <ul className="space-y-2 text-gray-400">
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> Strong organizational and communication skills</li>
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> Basic MS Office knowledge (Word, Excel, PowerPoint)</li>
-                      <li className="flex items-start gap-2"><span className="text-cyan-500 mt-1">•</span> Willingness to learn and adapt</li>
-                    </ul>
-                  </div>
-                </div>
+                      <h3 className="text-2xl font-bold font-heading text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                        {job.title}
+                      </h3>
 
-                {/* What You Will Learn */}
-                <div>
-                  <div className="bg-white/5 rounded-xl p-6 border border-white/5 h-full">
-                    <h3 className="text-xl font-bold font-heading text-white mb-4 flex items-center gap-2">
-                      <svg className="w-5 h-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      What You Will Learn
-                    </h3>
-                    <ul className="space-y-4">
-                      {['Basic Networking Concepts', 'Device Configuration & Setup', 'Network Monitoring', 'Troubleshooting', 'Real-Time Technical Support'].map((item) => (
-                        <li key={item} className="flex items-center gap-3 text-gray-300">
-                          <div className="w-6 h-6 rounded bg-cyan-500/10 flex items-center justify-center shrink-0">
-                            <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                            </svg>
-                          </div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </motion.section>
+                      <p className="text-gray-400 text-sm line-clamp-3 mb-6 leading-relaxed">
+                        {job.overview}
+                      </p>
+                    </div>
 
-          </div>
+                    <div>
+                      <div className="flex flex-wrap gap-y-2 gap-x-4 text-xs text-gray-400 pt-4 border-t border-white/10 mb-6">
+                        <span className="flex items-center gap-1.5">
+                          <svg className="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          {job.location}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <svg className="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {job.duration}
+                        </span>
+                      </div>
 
-          {/* Sidebar Area */}
-          <div className="lg:col-span-4 space-y-6">
-            
-            {/* Job Summary Card */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.5 }}
-              className="glass-card p-6 sticky top-28"
-            >
-              <h3 className="text-lg font-bold font-heading text-white mb-6 border-b border-white/10 pb-4">Role Overview</h3>
-              
-              <div className="space-y-4 mb-8">
-                {jobDetails.map((detail) => (
-                  <div key={detail.label} className="flex flex-col">
-                    <span className="text-sm text-gray-500 mb-1">{detail.label}</span>
-                    <span className="text-gray-200 font-medium">{detail.value}</span>
-                  </div>
-                ))}
-              </div>
+                      <div className="w-full py-3 px-4 rounded-xl bg-white/5 group-hover:bg-cyan-500 text-white group-hover:text-navy-950 font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 group-hover:border-cyan-500 text-center">
+                        View Details & Apply
+                        <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+          </motion.section>
 
-              <div className="bg-cyan-500/5 rounded-xl p-5 border border-cyan-500/20 text-center mb-6">
-                <h4 className="text-white font-bold mb-2">Apply Now</h4>
-                <p className="text-sm text-gray-400 mb-4">Ready to kickstart your career in communication technology?</p>
-                <a href="https://forms.gle/GJbx6H66HpymoCSKA" target="_blank" rel="noreferrer" className="glow-btn w-full block">
-                  Apply via Google Form
-                </a>
-              </div>
+          {/* General Contact Box */}
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={fadeUp}
+            className="glass-card p-8 text-center border-cyan-500/20"
+          >
+            <h3 className="text-xl font-bold font-heading text-white mb-2">Have Questions About Careers at SkyionX?</h3>
+            <p className="text-gray-400 text-sm max-w-xl mx-auto mb-6">
+              Reach out to our talent acquisition team directly for any queries regarding application process or available roles.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+              <a href="mailto:hr@skyionx.com" className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2 font-medium">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                hr@skyionx.com
+              </a>
+              <span className="text-gray-600">|</span>
+              <a href="tel:02245803512" className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2 font-medium">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                022-45803512
+              </a>
+            </div>
+          </motion.div>
 
-              <div className="text-center text-sm text-gray-400">
-                <p className="mb-1">Or contact us at:</p>
-                <a href="mailto:hr@skyionx.com" className="text-cyan-400 hover:text-cyan-300 transition-colors block">hr@skyionx.com</a>
-                <a href="tel:02245803512" className="text-cyan-400 hover:text-cyan-300 transition-colors block mt-1">022-45803512</a>
-              </div>
-            </motion.div>
-
-          </div>
         </div>
       </div>
     </div>

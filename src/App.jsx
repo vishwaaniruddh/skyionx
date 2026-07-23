@@ -7,7 +7,12 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import NmsPage from './pages/NmsPage'
 import ManagedPage from './pages/ManagedPage'
+import SecureWanPage from './pages/SecureWanPage'
+import SatellitePage from './pages/SatellitePage'
+import ItmsPage from './pages/ItmsPage'
+import HelpdeskPage from './pages/HelpdeskPage'
 import CareersPage from './pages/CareersPage'
+import JobDetailPage from './pages/JobDetailPage'
 import Asb21Page from './pages/Asb21Page'
 import Asb50Page from './pages/Asb50Page'
 import Asb90Page from './pages/Asb90Page'
@@ -37,6 +42,10 @@ export default function App() {
 
         <Route path="/services/network-management" element={<NmsPage />} />
         <Route path="/services/managed-services" element={<ManagedPage />} />
+        <Route path="/services/secure-wan" element={<SecureWanPage />} />
+        <Route path="/services/satellite-communication" element={<SatellitePage />} />
+        <Route path="/services/it-managed-services" element={<ItmsPage />} />
+        <Route path="/services/helpdesk-support" element={<HelpdeskPage />} />
         <Route path="/services/*" element={<PlaceholderPage title="Services" />} />
         
         <Route path="/products" element={<ProductsPage />} />
@@ -45,6 +54,7 @@ export default function App() {
         <Route path="/products/asb90" element={<Asb90Page />} />
         
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="/careers/:jobId" element={<JobDetailPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
@@ -52,3 +62,4 @@ export default function App() {
     </div>
   )
 }
+

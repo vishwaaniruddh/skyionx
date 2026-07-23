@@ -34,7 +34,7 @@ export default function ContactPage() {
     }
 
     try {
-      const res = await fetch('http://localhost/sky_v2/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -217,10 +217,10 @@ export default function ContactPage() {
                   <div>
                     <h4 className="text-white font-medium mb-1">Corporate Office</h4>
                     <p className="text-gray-400 text-sm leading-relaxed">
-                      SkyionX Technologies Pvt. Ltd.<br />
+                      Skyionx Space Innovations Pvt. Ltd.<br />
                       1301, Rupa Sapphire, 13th Floor,<br />
                       Plot 12, Sector 18, Vashi,<br />
-                      Navi Mumbai 400703, Maharashtra, India
+                      Navi Mumbai - 400703, Maharashtra, India
                     </p>
                   </div>
                 </div>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="text-white font-medium mb-1">Call Us</h4>
                     <a href="tel:02245803512" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">022-45803512</a>
-                    <p className="text-gray-500 text-xs mt-1">Mon-Sat, 10:00 AM - 7:00 PM</p>
+                    <p className="text-gray-500 text-xs mt-1">Mon-Sat, 10:30 AM - 06:30 PM</p>
                   </div>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default function ContactPage() {
           className="mt-16 glass-card p-2 rounded-2xl overflow-hidden h-[400px] border border-cyan-500/20 shadow-2xl shadow-cyan-500/10"
         >
           <iframe 
-            src="https://maps.google.com/maps?q=Regus+Millenium+Business+Park,+Navi+Mumbai&hl=en&z=15&output=embed" 
+            src="https://maps.google.com/maps?q=1301,+Rupa+Sapphire,+13th+Floor,+Plot+12,+Sector+18,+Vashi,+Navi+Mumbai+-+400703&hl=en&z=15&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.2)' }} 

@@ -107,23 +107,34 @@ export default function WhySkyionx() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="glass-card p-8 group"
+              className="glass-card p-8 group relative overflow-hidden"
             >
               {/* Number */}
-              <span className="text-cyan-500/30 text-5xl font-bold font-heading absolute top-6 right-6 group-hover:text-cyan-500/50 transition-colors duration-500">
+              <span className="text-cyan-500/10 text-6xl font-bold font-heading absolute -bottom-4 right-4 group-hover:text-cyan-500/20 transition-colors duration-500 pointer-events-none">
                 {reason.num}
               </span>
 
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all duration-500">
-                {reason.icon}
-              </div>
+              <div className="flex flex-col sm:flex-row gap-6 relative z-10">
+                {/* Icon */}
+                <div className="w-16 h-16 shrink-0 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all duration-500">
+                  {reason.icon}
+                </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-bold font-heading mb-3 group-hover:text-cyan-400 transition-colors duration-300">
-                {reason.title}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{reason.desc}</p>
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold font-heading mb-3 text-white group-hover:text-cyan-400 transition-colors duration-300">
+                    {reason.title}
+                  </h3>
+                  <p className="text-gray-300 text-base leading-relaxed mb-5">{reason.desc}</p>
+                  
+                  <a href="/about" className="inline-flex items-center gap-2 text-cyan-400 font-semibold text-sm hover:text-cyan-300 transition-colors group/link">
+                    Learn More
+                    <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
